@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Autenticador - Terms of Services</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <title>Autenticador - Termos de Serviço</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" />
   <style>
     * {
       margin: 0;
@@ -16,93 +16,146 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      background: linear-gradient(135deg, #1b4b29 0%, #102b65 50%, #1e293b 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 15s ease infinite;
       color: #f1f5f9;
       line-height: 1.8;
-      padding: 3rem;
+      padding: 2rem;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      overflow: hidden;
+      align-items: center;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .container {
       max-width: 1000px;
-      margin: auto;
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 15px;
-      padding: 2.5rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
+      margin: 2rem auto;
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
       opacity: 0;
-      transition: opacity 0.5s ease-in;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .container.loaded {
       opacity: 1;
+      transform: translateY(0);
     }
 
     h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(90deg, #38bdf8, #60a5fa);
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      background: linear-gradient(90deg, #3b82f6, #037e32);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-align: center;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      animation: fadeIn 1s ease;
     }
 
     h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: 2rem;
+      font-weight: 600;
       margin: 2.5rem 0 1.5rem;
-      color: #60a5fa;
-      border-left: 4px solid #38bdf8;
-      padding-left: 1rem;
+      color: #0da7ee;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1.2rem;
+      animation: slideIn 0.8s ease;
     }
 
     p {
       margin: 1.2rem 0;
       font-size: 1.1rem;
       color: #e2e8f0;
+      animation: fadeIn 1s ease 0.2s;
+      animation-fill-mode: both;
     }
 
     .terms-box {
       background: #1e293b;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
       margin: 2rem 0;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideIn 0.8s ease 0.4s;
+      animation-fill-mode: both;
+      position: relative;
+      overflow: hidden;
     }
 
     .terms-box:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .terms-box.loading h2,
+    .terms-box.loading p,
+    .terms-box.loading li {
+      background: linear-gradient(90deg, #2d3748 25%, #4b5563 50%, #2d3748 75%);
+      background-size: 200% 100%;
+      animation: skeletonLoading 1.5s ease infinite;
+      color: transparent;
+      border-radius: 8px;
+    }
+
+    .terms-box.loading h2 {
+      width: 50%;
+      height: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .terms-box.loading p {
+      width: 100%;
+      height: 1.5rem;
+      margin: 0.6rem 0;
+    }
+
+    .terms-box.loading ul {
+      padding-left: 0;
+    }
+
+    .terms-box.loading li {
+      width: 80%;
+      height: 1.5rem;
+      margin: 0.8rem 0;
+    }
+
+    .terms-box.loading li::before {
+      display: none;
     }
 
     ul {
       list-style: none;
-      padding-left: 1rem;
+      padding-left: 0;
     }
 
     li {
-      margin: 0.8rem 0;
-      font-size: 1.05rem;
+      margin: 1rem 0;
+      font-size: 1.1rem;
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      align-items: flex-start;
+      gap: 0.8rem;
       color: #d1d5db;
+      animation: fadeIn 1s ease 0.6s;
+      animation-fill-mode: both;
     }
 
     li::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: #38bdf8;
-      border-radius: 50%;
+      content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%233b82f6" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zm0 2a6 6 0 1 0 0 12A6 6 0 0 0 8 2zm0 8.586L5.707 8.293a1 1 0 0 1 1.414-1.414L8 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L8 11.414z"/></svg>');
+      margin-top: 4px;
     }
 
     footer {
@@ -110,69 +163,103 @@
       text-align: center;
       color: #94a3b8;
       font-size: 0.95rem;
+      animation: fadeIn 1s ease 0.8s;
+      animation-fill-mode: both;
     }
 
     a {
-      color: #38bdf8;
+      color: #3b82f6;
       text-decoration: none;
-      font-weight: 700;
-      transition: color 0.3s ease;
+      font-weight: 600;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
     a:hover {
-      color: #60a5fa;
-      text-decoration: none;
+      color: #00271d;
+      transform: scale(1.05);
     }
 
-    /* Loader Styles */
-    .loader {
+    .contact-btn {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #0f172a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      transition: opacity 0.5s ease-out;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(90deg, #3b82f6, #078f1e);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .loader.hidden {
-      opacity: 0;
-      pointer-events: none;
+    .contact-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     }
 
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid #38bdf8;
-      border-top: 5px solid transparent;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
+    @keyframes skeletonLoading {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
     }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1e293b;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #a855f7;
     }
 
     @media (max-width: 768px) {
       body {
-        padding: 1.5rem;
+        padding: 1rem;
       }
 
       h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
 
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
       }
 
       .container {
+        padding: 2rem;
+        margin: 1rem;
+      }
+
+      .terms-box {
         padding: 1.5rem;
+      }
+
+      .contact-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        bottom: 1rem;
+        right: 1rem;
       }
     }
   </style>
@@ -182,35 +269,41 @@
     <div class="spinner"></div>
   </div>
   <div class="container">
-    <h1>Autenticador - Max Fibra</h1>
+    <h1>Autenticador - Termos de Serviço</h1>
     <p>Bem-vindo ao site oficial do AuthBot! Aqui você encontra todas as informações essenciais, links úteis e os Termos de Serviço do nosso bot.</p>
 
-    <div class="terms-box">
+    <div class="terms-box loading">
       <h2>📜 Termos de Serviço</h2>
-      <p>Ao utilizar o Autenticador(Bot), você concorda com os seguintes termos:</p>
+      <p>Ao utilizar o Autenticador (Bot), você concorda com os seguintes termos:</p>
       <ul>
         <li>Você é responsável por qualquer conteúdo enviado ao bot.</li>
         <li>É proibido utilizar o bot para atividades ilegais, abusivas ou que violem os Termos do Discord.</li>
         <li>Não armazenamos informações sensíveis sem seu consentimento explícito.</li>
-        <li>Logs de efeitos podem ser armazenados para fins de melhoria e suporte.</li>
+        <li>Logs de interações podem ser armazenados para fins de melhoria e suporte.</li>
         <li>Você pode solicitar a remoção de seus dados a qualquer momento.</li>
         <li>O bot pode ser desativado ou alterado a qualquer momento sem aviso prévio.</li>
       </ul>
-      <p>Ao continuar utilizando o AuthBot, você declara estar de acordo com estes termos.</p>
+      <p>Ao continuar utilizando o Autenticador, você declara estar de acordo com estes termos.</p>
     </div>
 
     <footer>
       <p>© 2025 Autenticador - Max Fibra - Criado por <a href="https://github.com/" target="_blank">Grupo Max Fibra</a></p>
     </footer>
   </div>
+  <a href="mailto:contato@grupomaxfibra.com" class="contact-btn">Entre em Contato</a>
   <script>
     window.addEventListener('load', () => {
       const loader = document.querySelector('.loader');
       const container = document.querySelector('.container');
+      const termsBox = document.querySelector('.terms-box');
+      
       setTimeout(() => {
         loader.classList.add('hidden');
         container.classList.add('loaded');
-      }, 500); // Atraso mínimo para garantir que a animação seja visível
+        setTimeout(() => {
+          termsBox.classList.remove('loading');
+        }, 1000); // Atraso adicional para a animação de skeleton nos termos
+      }, 500);
     });
   </script>
 </body>
