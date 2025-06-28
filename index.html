@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autenticador - Terms of Services</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f1f5f9;
+      line-height: 1.8;
+      padding: 3rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+    }
+
+    .container.loaded {
+      opacity: 1;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #38bdf8, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.5rem;
+      color: #60a5fa;
+      border-left: 4px solid #38bdf8;
+      padding-left: 1rem;
+    }
+
+    p {
+      margin: 1.2rem 0;
+      font-size: 1.1rem;
+      color: #e2e8f0;
+    }
+
+    .terms-box {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      margin: 2rem 0;
+      transition: transform 0.3s ease;
+    }
+
+    .terms-box:hover {
+      transform: translateY(-5px);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    li {
+      margin: 0.8rem 0;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #d1d5db;
+    }
+
+    li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #38bdf8;
+      border-radius: 50%;
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    /* Loader Styles */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      transition: opacity 0.5s ease-out;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #38bdf8;
+      border-top: 5px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="spinner"></div>
+  </div>
+  <div class="container">
+    <h1>Autenticador - Max Fibra</h1>
+    <p>Bem-vindo ao site oficial do AuthBot! Aqui você encontra todas as informações essenciais, links úteis e os Termos de Serviço do nosso bot.</p>
+
+    <div class="terms-box">
+      <h2>📜 Termos de Serviço</h2>
+      <p>Ao utilizar o Autenticador(Bot), você concorda com os seguintes termos:</p>
+      <ul>
+        <li>Você é responsável por qualquer conteúdo enviado ao bot.</li>
+        <li>É proibido utilizar o bot para atividades ilegais, abusivas ou que violem os Termos do Discord.</li>
+        <li>Não armazenamos informações sensíveis sem seu consentimento explícito.</li>
+        <li>Logs de efeitos podem ser armazenados para fins de melhoria e suporte.</li>
+        <li>Você pode solicitar a remoção de seus dados a qualquer momento.</li>
+        <li>O bot pode ser desativado ou alterado a qualquer momento sem aviso prévio.</li>
+      </ul>
+      <p>Ao continuar utilizando o AuthBot, você declara estar de acordo com estes termos.</p>
+    </div>
+
+    <footer>
+      <p>© 2025 Autenticador - Max Fibra - Criado por <a href="https://github.com/" target="_blank">Grupo Max Fibra</a></p>
+    </footer>
+  </div>
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.querySelector('.loader');
+      const container = document.querySelector('.container');
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        container.classList.add('loaded');
+      }, 500); // Atraso mínimo para garantir que a animação seja visível
+    });
+  </script>
+</body>
+</html>
